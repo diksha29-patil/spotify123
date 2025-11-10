@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Awesome Spotify Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-image: url('https://source.unsplash.com/1000x100');
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 36px;
+        }
+
+        nav {
+            font-family: 'Ubuntu', sans-serif;
+            width: 100%;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            height: 65px;
+            background-color: black;
+            color: white;
+            justify-content: space-between;
+            position: sticky;
+        }
+
+        nav ul li {
+            padding: 0 12px;
+            font-size: 25px;
+        }
+
+        #navbar ul li a {
+            background-color: none;
+            /* Background color on hover */
+            text-decoration: none;
+            outline: none;
+            color: white;
+        }
+
+        #navbar ul li a:hover {
+            background-color: #111;
+            /* Background color on hover */
+            text-decoration: underline;
+            outline: none;
+            color: white;
+        }
+
+        .brand img {
+            width: 44px;
+            padding: 0 8px;
+        }
+
+        #searchForm {
+            display: flex;
+            align-items: center;
+        }
+
+        #searchInput {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        #searchInput:focus {
+            outline: none;
+            border-color: #1ED760;
+            /* Change the color on focus if desired */
+        }
+
+        #searchInput::placeholder {
+            color: #999;
+        }
+
+        #searchButton {
+            padding: 8px 12px;
+            background-color: #1ED760;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #searchButton:hover {
+            background-color: #149653;
+            /* Darker shade on hover */
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            font-weight: bolder;
+            font-size: 1.3rem;
+        }
+
+
+        #labnav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #labnav a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 20px;
+            font-size: 18px;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+
+        #labnav a:hover {
+            color: #1db954;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #1db954;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            margin: 10px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .card img {
+            max-width: 100%;
+            max-height: 150px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .card .play-btn {
+            background-color: #1db954;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 14px;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        .card:hover .play-btn {
+            opacity: 1;
+        }
+
+        .heart-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .fa-heart {
+            color: #1db954;
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .fa-heart.favorite,
+        .fa-heart.hovered {
+            color: red;
+        }
+
+
+        footer {
+            background-color: #1db954;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .fab {
+            color: #1db954;
+            margin-right: 5px;
+        }
+        #goToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  #goToTopBtn:hover {
+    background-color: #0056b3;
+  }
+
+
+        .playbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            bottom: -1px;
+            filter: invert(1);
+            background: #e2d9d9;
+            border-radius: 10px;
+            width: 90%;
+            padding: 12px;
+            width: 97vw;
+            min-height: 40px;
+        }
+
+        .songbuttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .seekbar {
+            height: 4px;
+            width: 98%;
+            background: black;
+            border-radius: 10px;
+            position: absolute;
+            bottom: -1px;
+            margin: 6px;
+            cursor: pointer;
+        }
+
+        .circle {
+            width: 13px;
+            height: 13px;
+            border-radius: 13px;
+            background-color: black;
+            position: relative;
+            bottom: 5px;
+            left: 0%;
+            transition: left 0.5s;
+        }
+
+        .songbuttons img {
+            cursor: pointer;
+            padding-left: 20px;
+        }
+
+        .timevol {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .songinfo {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+
+        }
+
+        .songname {
+            color: black;
+            /* Change color as desired */
+            font-weight: bold;
+            /* Apply bold font weight */
+            font-size: 18px;
+            /* Set font size */
+            margin-top: 10px;
+            /* Add top margin for spacing */
+            padding-left: 20px;
+        }
+
+
+        .songtime {
+            width: 125px;
+            color: black;
+            padding: 0 12px;
+            justify-content: right;
+        }
+
+
+        .songbuttons {
+            margin-top: 14px;
+            align-items: left;
+        }
+
+        .songbuttons i {
+            cursor: pointer;
+        }
+
+        .volume {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .range input {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navbar">
+        <ul>
+            <li class="brand"><img src="image/logo.png" alt="Spotify logo">Spotify</li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="library.html">Library</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+            <li class="search-container">
+                <form id="searchForm">
+                    <input type="text" id="searchInput" placeholder="Search...">
+                    <button type="submit" id="searchButton">
+                        <i class="fas fa-search"></i> <!-- Font Awesome search icon -->
+                        Search
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+    <header>
+        <i class="fab fa-spotify"></i> My Awesome Spotify Library
+    </header>
+
+
+    <nav id="labnav">
+        <a href="#all-songs">All Songs</a>
+        <a href="#hindi-songs">Hindi Songs</a>
+        <a href="#marathi-songs">Marathi Songs</a>
+        <a href="#english-songs">English Songs</a>
+        <a href="#favorite-songs">Favorite Songs</a>
+    </nav>
+
+    <section id="all-songs">
+        <h2>All Songs</h2>
+        <ul>
+
+
+        </ul>
+    </section>
+    <section id="hindi-songs">
+        <h2>Hindi Songs</h2>
+        <ul>
+
+        </ul>
+    </section>
+    <section id="marathi-songs">
+        <h2>Marathi Songs</h2>
+        <ul>
+
+        </ul>
+    </section>
+    <section id="english-songs">
+        <h2>English Songs</h2>
+        <ul>
+        </ul>
+    </section>
+    <section id="favorite-songs">
+        <h2>Favorite Songs</h2>
+        <br>
+        <ul>
+        </ul>
+    </section>
+    <div class="playbar">
+        <div class="seekbar">
+            <div class="circle"></div>
+        </div>
+        <div class="songbuttons">
+            <i class="fas fa-3x fa-step-backward" id="previous"></i>
+            <i class="far fa-3x fa-play-circle" id="masterPlay"></i>
+            <i class="fas fa-3x fa-step-forward" id="next"></i>
+        </div>
+        <div class="songInfo">
+            <div class="timevol">
+                <span class="songtime">00:00 / 00:00</span>
+
+            </div>
+            <div class="songname"></div> <!-- New div for song name -->
+        </div>
+        <div class="volume">
+            <i class="fas fa-volume-up"></i>
+            <div class="range input">
+                <input type="range" name="volume" id="">
+            </div>
+            <button id="goToTopBtn" title="Go to top">↑</button>
+        </div>
+        <script>
+           const goToTopBtn = document.getElementById("goToTopBtn");
+  
+  window.onscroll = function() {scrollFunction()};
+  
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      goToTopBtn.style.display = "block";
+    } else {
+      goToTopBtn.style.display = "none";
+    }
+  }
+  
+  goToTopBtn.addEventListener("click", () => {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  });
+        </script>
+
+        <script src="Script.js"></script>
+</body>
+
+</html>

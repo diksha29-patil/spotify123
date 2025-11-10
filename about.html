@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Spotify clone</title>
+
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .left-section {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .right-section {
+            flex: 1;
+            padding: 20px;
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        #read-more-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #read-more-button:hover {
+            background-color: #0056b3;
+        }
+
+        .read-more-content {
+            display: none;
+            /* Initially hide the additional content */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: #111;
+        }
+
+        nav {
+            font-family: 'Ubuntu', sans-serif;
+            width: 100%;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            height: 65px;
+            background-color: black;
+            color: white;
+            justify-content: space-between;
+            position: sticky;
+        }
+
+        nav ul li {
+            padding: 0 12px;
+            font-size: 25px;
+        }
+
+        #navbar ul li a {
+            background-color: none;
+            /* Background color on hover */
+            text-decoration: none;
+            outline: none;
+            color: white;
+        }
+
+        #navbar ul li a:hover {
+            background-color: #111;
+            /* Background color on hover */
+            text-decoration: underline;
+            outline: none;
+            color: white;
+        }
+
+        .brand img {
+            width: 44px;
+            padding: 0 8px;
+        }
+
+        #searchForm {
+            display: flex;
+            align-items: center;
+        }
+
+        #searchInput {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        #searchInput:focus {
+            outline: none;
+            border-color: #1ED760;
+            /* Change the color on focus if desired */
+        }
+
+        #searchInput::placeholder {
+            color: #999;
+        }
+
+        #searchButton {
+            padding: 8px 12px;
+            background-color: #1ED760;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #searchButton:hover {
+            background-color: #149653;
+            /* Darker shade on hover */
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            font-weight: bolder;
+            font-size: 1.3rem;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1ED760;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background-color: #149653;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navbar">
+        <ul>
+            <li class="brand"><img src="image/logo.png" alt="Spotify logo">Spotify</li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="library.html">Library</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+            <li class="search-container">
+                <form id="searchForm">
+                    <input type="text" id="searchInput" placeholder="Search...">
+                    <button type="submit" id="searchButton">
+                        <i class="fas fa-search"></i> <!-- Font Awesome search icon -->
+                        Search
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="left-section">
+            <div class="section">
+                <h1>About us</h1>
+                <p>Welcome to Spotify, where music meets innovation! We are a dynamic team passionate about
+                    revolutionizing the music industry and providing unparalleled experiences to our users. Discover
+                    more about us below.</p>
+                   
+                <div class="read-more-content">
+
+                    <h2>Who We Are</h2>
+                    <p>
+                        At Spotify, we are driven by our mission to connect people with the music and podcasts they
+                        love. With a diverse team of experts from various fields, we bring a wealth of creativity and
+                        expertise to every aspect of our platform. From developing cutting-edge technology to curating
+                        personalized playlists, we are committed to redefining how the world enjoys music.
+                    </p>
+
+                    <p><b>Our mission :</b>To provide free music to all, offering a gateway to relaxation and an avenue
+                        to deepen one's passion for music.</p>
+                    <p><b>Our Values:</b> Inclusivity, Innovation, Passion, Collaboration.</p>
+                    
+               
+                <div class="section">
+                    <h2>What We Offer</h2>
+                    <ul>
+                        <li><strong>Music Streaming:</strong> Access millions of songs and podcasts anytime, anywhere,
+                            from any device.</li>
+                        <li><strong>Original Content:</strong> Enjoy exclusive podcasts, live sessions, and original
+                            content created by artists and creators.</li>
+                        <li><strong>Collaborative Playlists:</strong> Share and collaborate on playlists with friends,
+                            family, and fellow music enthusiasts.</li>
+                        <li><strong>Artist Support:</strong> Empower artists with tools and resources to connect with
+                            their fans and grow their careers.</li>
+                    </ul>
+
+                    <h2>Our Team</h2>
+                    <p>Meet the passionate individuals behind Spotify. Our team is comprised of music lovers, tech
+                        enthusiasts, and creative minds dedicated to pushing the boundaries of what's possible in the
+                        world of music streaming. Together, we strive to innovate, inspire, and bring joy to millions of
+                        users worldwide.</p>
+
+                    </div>
+                </div>
+                <button id="read-more-button" onclick="toggleReadMore()">Read More</button> 
+                <a href="contact.html" class="contact-button">Contact Us</a>
+                </div>
+            </div>
+            <div class="right-section">
+                <img id="randomImage" src="">
+            </div>
+        </div>
+        <script>
+            // Function to fetch a random image from Unsplash Source API
+            function fetchRandomImage(imageSize, category) {
+                // Construct URL for fetching random image
+                var imageUrl = "https://source.unsplash.com/" + imageSize + "/?" + category;
+
+                // Set the background image of the right section to the fetched URL
+                document.querySelector('.right-section').style.backgroundImage = "url('" + imageUrl + "')";
+            }
+
+            // Fetch random images when the page loads
+            window.onload = function () {
+                fetchRandomImage("1280x720", "morden music instuments"); // Adjust the image size as needed
+            };
+            function toggleReadMore() {
+                var content = document.querySelector('.read-more-content');
+                var button = document.getElementById('read-more-button');
+
+                if (content.style.display === 'none') {
+                    content.style.display = 'block';
+                    button.textContent = 'Read Less'; // Change button text
+                } else {
+                    content.style.display = 'none';
+                    button.textContent = 'Read More'; // Change button text
+                }
+            }
+        </script>
+
+
+</body>
+
+</html>

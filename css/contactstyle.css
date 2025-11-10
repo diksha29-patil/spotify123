@@ -1,0 +1,168 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #111;
+}
+nav {
+    font-family: 'Ubuntu', sans-serif;
+    width: 100%;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    height: 65px;
+    background-color: black;
+    color: white;
+    justify-content: space-between;
+    position: sticky;
+}
+
+nav ul li {
+    padding: 0 12px;
+    font-size: 25px;
+}
+
+#navbar ul li a {
+    background-color: none;
+    /* Background color on hover */
+    text-decoration: none;
+    outline: none;
+    color: white;
+}
+
+#navbar ul li a:hover {
+    background-color: #111;
+    /* Background color on hover */
+    text-decoration: underline;
+    outline: none;
+    color: white;
+}
+
+.brand img {
+    width: 44px;
+    padding: 0 8px;
+}
+
+#searchForm {
+    display: flex;
+    align-items: center;
+}
+
+#searchInput {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: #1ED760;
+    /* Change the color on focus if desired */
+}
+
+#searchInput::placeholder {
+    color: #999;
+}
+
+#searchButton {
+    padding: 8px 12px;
+    background-color: #1ED760;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#searchButton:hover {
+    background-color: #149653;
+    /* Darker shade on hover */
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 1.3rem;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px auto;
+    max-width: 1000px;
+    /* Adjust as needed */
+    background-color: black;
+    border-radius: 12px;
+    background-image: url(bg.jpg);
+}
+
+.container {
+  width: 50%;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  color: #666;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="Phone No"],
+
+textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  background-color: #149653;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+#go-to-home {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+#go-to-home:hover {
+  background-color: #0056b3;
+}

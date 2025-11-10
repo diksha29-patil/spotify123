@@ -1,0 +1,135 @@
+/* Reset some default styles for better consistency */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Body styles */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #4158D0;
+background-image:url(bg.jpg);
+
+  }
+  
+  /* Container styles */
+ 
+.container {
+    width: 300px;
+    padding: 16px;
+    margin: 0 auto;
+    margin-top: 50px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: linear-gradient(to right, #4caf50, #050505); /* Adjust gradient colors */
+    color: white; /* Text color for better contrast */
+  }
+    
+  /* Input field styles */
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  /* Login button styles */
+  button {
+    background-color: #7f4caf;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Cancel button styles */
+  .cancelbtn {
+    background-color: #f44336;
+  }
+  
+  /* Add some hover effects to buttons */
+  button:hover, .cancelbtn:hover {
+    opacity: 0.8;
+  }
+  
+  /* Image container styles */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+  }
+  
+  /* Avatar image styles */
+  .avatar {
+    width: 100px;
+    border-radius: 50%;
+    background-color: #4caf50; /* Choose your desired background color */
+    padding: 5px; /* Adjust padding as needed */
+    box-sizing: border-box;
+  }
+  /* Avatar text styles */
+.avatar-text {
+    text-align: center;
+    margin-top: 10px;
+    color: white; /* Text color for better contrast against the avatar background */
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+  
+  
+  
+  /* Additional styles for the bottom container */
+  .container::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Checkbox and Forgot password link styles */
+  label {
+    margin-bottom: 15px;
+    display: block;
+  }
+  
+  /* Style the cancel button and the forgot password link container */
+  .container:last-child {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  /* Style the forgot password link */
+  .psw a {
+    color: #f70000;
+  }
+  
+   /* Register button styles */
+.registerbtn {
+    background-color: #f3212c; /* Choose your desired background color */
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  /* Add some hover effects to the register button */
+  .registerbtn:hover {
+    opacity: 0.8;
+  }
+  
+  /* Add hover effect to the register button */
+  .registerbtn:hover {
+    opacity: 0.8;
+  }
+  
+  

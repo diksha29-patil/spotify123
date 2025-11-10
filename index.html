@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Music Player</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+    <nav id="navbar">
+        <ul>
+            <li class="brand"><img src="image/logo.png" alt="Spotify logo">Spotify</li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="library.html">Library</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+            <li class="search-container">
+                <form id="searchForm">
+                    <input type="text" id="searchInput" placeholder="Search...">
+                    <button type="submit" id="searchButton">
+                        <i class="fas fa-search"></i> <!-- Font Awesome search icon -->
+                        Search
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="square-box">
+            <h2>All Songs</h2>
+            <div class="song-list" id= "all-songs">
+                <a href="library.html#all-songs">
+                    <div class="song">
+                        <img src="image/covers/AllSongs.jpg"alt="All Songs Cover">
+                    </div>
+                </a>
+        </section>
+        
+        <section class="square-box">
+            <h2>Marathi Songs</h2>
+            <div class="song-list" id="marathi-songs">
+                <a href="library.html#marathi-songs">
+                    <div class="song">
+                        <img src="image/covers/MarathiSongs.jpg" alt="Marathi Songs Cover">
+                    </div>
+                </a>
+        </section>
+        
+        <section class="square-box">
+            <h2>Hindi Songs</h2>
+            <div class="song-list" id="hindi-songs">
+                <a href="library.html#hindi-songs">
+                    <div class="song">
+                        <img src="image/covers/HindiSongs.jpg" alt="Hindi Songs Cover">
+                    </div>
+                </a>
+        </section>
+        
+        <section class="square-box">
+            <h2>English Songs</h2>
+            <div class="song-list">
+                <a href="library.html#english-songs">
+                    <div class="song">
+                        <img src="image/covers/EnglishSongs.jpg" alt="English Songs Cover">
+                    </div>
+                </a>
+        </section>
+        
+        <section class="square-box">
+            <h2>Favorite Songs</h2>
+            <div class="song-list" id="favorite-songs">
+                <a href="library.html#favorite-songs">
+                    <div class="song">
+                        <img src="image/covers/FavoriteSongs.jpg" alt="Favorite Songs Cover">
+                    </div>
+                </a>
+        </section>
+    </div>
+
+    <div class="playbar">
+        <div class="seekbar">
+            <div class="circle"></div>
+        </div>
+        <div class="songbuttons">
+            <i class="fas fa-3x fa-step-backward" id="previous"></i>
+            <i class="far fa-3x fa-play-circle" id="masterPlay"></i>
+            <i class="fas fa-3x fa-step-forward" id="next"></i>
+        </div>
+        <div class="songInfo">
+            <div class="timevol">
+                <span class="songtime">00:00 / 00:00</span>
+
+            </div>
+            <div class="songname"></div> <!-- New div for song name -->
+        </div>
+        <div class="volume">
+            <i class="fas fa-volume-up"></i>
+            <div class="range input">
+                <input type="range" name="volume" id="">
+            </div>
+            
+        </div>
+    </div>
+
+    <?php
+    session_start();
+    if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
+        header("location: login.php");
+        exit;
+    }
+    ?>
+    <div class="container my-3">
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Welcome - <?php echo $_SESSION['username']?></h4>
+            <p>Hey how are you doing? Welcome to iSecure. You are logged in as <?php echo $_SESSION['username']?>. Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+            <hr>
+            <p class="mb-0">Whenever you need to, be sure to logout <a href="/loginsystem/logout.php"> using this link.</a></p>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/eb4bb43091.js" crossorigin="anonymous"></script>
+    <script src="Script.js"></script>
+</body>
+</html>
